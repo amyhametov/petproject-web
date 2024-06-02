@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="hero">
+        <div class="hero-header">
+          <div class="hero-title">
+            <h1>Create a project</h1>
+          </div>
+          <img class="hero-image" src="https://funco-images.s3.eu-west-1.amazonaws.com/hero_image_d8e0685d58.png" />
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="form-section">
+          <form class="createform" action="">
+            <input type="text" id="projectName" name="projectName" placeholder="Project name" class="input-style">
+            <input type="number" id="donateTarget" name="donateTarget" placeholder="Donate target" class="input-style">
+            <input type="date" id="dueDate" name="dueDate" placeholder="Due date" class="input-style">
+            <input type="file" id="avatar" name="avatar" class="input-style">
+            <textarea id="description" name="description" placeholder="Project description" class="textarea-style"></textarea>
+            <textarea id="proof" name="proof" placeholder="Proof of success" class="textarea-style"></textarea>
+            <input type="submit" value="Submit" class="primaty-button">
+          </form>
+        </div>
+        
+            
+      </div>
+
+    </div>
+
+
+
+      <!-- Datapicker
+      <div class="coc-form">
+        <div class="coc-block-row">
+          <label class="coc-block-label" for="dateofbirth">Date Of Birth</label>
+          <div class="coc-block">
+            <input class="coc-input" type="date" name="dateofbirth" id="dateofbirth">
+          </div>
+        </div>
+      </div>
+       -->
+
+
+     
+
+      
+
+    <!--Datapicker java-->
+    <script>
+      $(function () {
+       var bindDatePicker = function() {
+         $(".date").datetimepicker({
+             format:'YYYY-MM-DD',
+           icons: {
+             time: "fa fa-clock-o",
+             date: "fa fa-calendar",
+             up: "fa fa-arrow-up",
+             down: "fa fa-arrow-down"
+           }
+         }).find('input:first').on("blur",function () {
+           // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+           // update the format if it's yyyy-mm-dd
+           var date = parseDate($(this).val());
+
+           if (! isValidDate(date)) {
+             //create date based on momentjs (we have that)
+             date = moment().format('YYYY-MM-DD');
+           }
+
+           $(this).val(date);
+         });
+       }
+       
+       var isValidDate = function(value, format) {
+         format = format || false;
+         // lets parse the date to the best of our knowledge
+         if (format) {
+           value = parseDate(value);
+         }
+
+         var timestamp = Date.parse(value);
+
+         return isNaN(timestamp) == false;
+       }
+       
+       var parseDate = function(value) {
+         var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+         if (m)
+           value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+         return value;
+       }
+       
+       bindDatePicker();
+     });
+   </script>
+
+
+  </body>
+</html>
