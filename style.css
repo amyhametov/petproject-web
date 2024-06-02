@@ -1,3 +1,9 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
 .screen {
   display: flex;
   flex-direction: column;
@@ -489,7 +495,7 @@ h3 {
   padding: 16px 0px 0px 16px;
   border: 1px solid #E1E6EB;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   font-family: "Inter", Helvetica;
   font-weight: 400;

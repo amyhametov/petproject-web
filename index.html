@@ -2,13 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>[Pet]Project Donations</title>
-    <script type="module" crossorigin src="assets/main-e274eff6.js"></script>
-    <link rel="stylesheet" href="assets/index-4d36ccb4.css">
+    <script type="module" crossorigin src="assets/index-ef583853.js"></script>
+    <link rel="stylesheet" href="assets/index-815b4731.css">
   </head>
   <body>
     <div id="root"></div>
     
+    <script>
+      document.body.addEventListener('touchstart', function(e) {
+        if (e.target.tagName !== 'TEXTAREA') {
+          if (document.activeElement) {
+            document.activeElement.blur();
+          }
+        }
+      });
+    </script>
   </body>
 </html>
